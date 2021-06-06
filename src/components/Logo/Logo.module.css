@@ -1,3 +1,16 @@
 .logo {
-   display: block;
+   font-weight: bold;
+   font-size: 18px;
+   line-height: 18px;
+   letter-spacing: 0.02em;
+
+   margin-right: 155px;
+
+   color: #00d7ff;
+}
+
+@media screen and (min-width: 768px) {
+   .logo {
+      margin-right: 0;
+   }
 }

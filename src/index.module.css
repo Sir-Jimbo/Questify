@@ -10,3 +10,14 @@ body {
 code {
   font-family: "Montserrat", sans-serif;
 }
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a,
+li {
+  text-decoration: none;
+}

@@ -3,7 +3,7 @@ import s from './Logo.module.css';
 
 const Logo = () => {
    return (
-      <a className={s.logo}>
+      <a href="/" className={s.logo}>
          Questify
       </a>
    )

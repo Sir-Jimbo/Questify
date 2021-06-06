@@ -4,9 +4,10 @@ import s from './Login.module.css';
 
 const Login = () => {
    return (
-      <p className={s.login}>
-         login
-      </p>
+      <div className={s.login}>
+         <p className={s.avatar}>J</p>
+         <p className={s.text}>John’s Quest Log</p>
+      </div>
    )
 }
 

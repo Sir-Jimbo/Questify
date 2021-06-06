@@ -1,12 +1,10 @@
 import React from 'react';
 import s from './Logout.module.css';
 
-const Logout = () => {
+export default function Logout({ onClick }) {
    return (
-      <svg width="22" height="16">
-         <use className={s.icon} href="./images/sprite.svg#icon-exit"></use>
+      <svg onClick={onClick} width="22" height="16">
+         <use className={s.icon} href="./images/sprite.svg#icon-logout"></use>
       </svg>
    )
 }
-
-export default Logout
