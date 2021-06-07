@@ -11,7 +11,7 @@ import {
    REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import phonebookReducer from './dashboard/phonebook-reducers';
+//import dasboardReducer from './dashboard/dasboard-reducers';
 import authReducer from './auth/auth-reducer';
 
 const middleware = [
@@ -32,7 +32,7 @@ const authPersistConfig = {
 const store = configureStore({
    reducer: {
       auth: persistReducer(authPersistConfig, authReducer),
-      phonebook: phonebookReducer
+      //dasboard: dasboardReducer
    },
    middleware,
    devTools: process.env.NODE_ENV === 'development',
