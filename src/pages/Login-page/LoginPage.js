@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import authOperations from "../../redux/auth/auth-operations";
-import s from "./_LoginPage.module.scss";
+import s from "./LoginPage.module.scss";
 
 export default function LoginPage(params) {
   const dispatch = useDispatch();
@@ -27,7 +27,7 @@ export default function LoginPage(params) {
 
   return (
     <div className={s.container}>
-      <h2>Questify</h2>
+      <h2 >Questify</h2>
       <h3>
         Questify will turn your life into a thrilling game full of amazing
         quests and exciting challenges.
