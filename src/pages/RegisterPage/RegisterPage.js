@@ -11,7 +11,6 @@ import s from './RegisterPage.module.css'
 export default function RegisterPage() {
   const dispatch = useDispatch();
 
-  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -20,13 +19,11 @@ export default function RegisterPage() {
 
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
-      case 'name':
-        return setName(value);
       case 'email':
         return setEmail(value);
       case 'password':
         return setPassword(value);
-      default: console.warn(`Тип поля name - ${name} не обрабатывается!`);
+      default: console.warn(`Тип поля email - ${name} не обрабатывается!`);
         return;
     }
   };
@@ -34,9 +31,8 @@ export default function RegisterPage() {
   const handleSubmit = e => {
     e.preventDefault();
 
-    dispatch(authOperations.register({ name, email, password }));
+    dispatch(authOperations.register({ email, password }));
 
-    setName('');
     setEmail('');
     setPassword('');
   };
@@ -64,17 +60,6 @@ export default function RegisterPage() {
         className={s.form}
         autoComplete="off"
       >
-        <label
-          htmlFor="name"
-          className={s.label}>
-          Name</label>
-        <input
-          className={s.input}
-          type="text"
-          name="name"
-          value={name}
-          onChange={handleChange}
-        />
 
         <label
           htmlFor="email"

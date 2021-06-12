@@ -1,28 +1,39 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import authOperations from "../../redux/auth/auth-operations";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { useSelector, useDispatch } from 'react-redux';
+import authOperations from '../../redux/auth/auth-operations.js';
+import { CSSTransition } from 'react-transition-group';
+import authSelectors from '../../redux/auth/auth-selectors';
+import Notification from '../../components/Notification/Notification';
+import Spinner from '../../components/Spinner/Spinner';
 import s from "./LoginPage.module.scss";
 
-export default function LoginPage(params) {
+export default function LoginPage() {
   const dispatch = useDispatch();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
-  const handleChangeEmail = ({ target }) => {
-    setEmail(target.value);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const error = useSelector(authSelectors.getError);
+  const isLoadingAuth = useSelector(authSelectors.getLoading);
+
+  const handleChange = ({ target: { name, value } }) => {
+    switch (name) {
+      case 'email':
+        return setEmail(value);
+      case 'password':
+        return setPassword(value);
+      default: console.warn(`Тип поля name - ${name} не обрабатывается!`);
+        return;
+    }
   };
 
-  const handleChangePassword = ({ target }) => {
-    setPassword(target.value);
-  };
-
-  const handleFormSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
 
-    dispatch(authOperations.loginUser({ email, password }));
-
-    setEmail("");
-    setPassword("");
+    dispatch(authOperations.logIn({ email, password }));
+    setEmail('');
+    setPassword('');
   };
 
   return (
@@ -32,31 +43,51 @@ export default function LoginPage(params) {
         Questify will turn your life into a thrilling game full of amazing
         quests and exciting challenges.
       </h3>
-      <form className={s.form} onSubmit={handleFormSubmit}>
-        <label className={s.formLabel}>
+
+      <Notification
+        message={error}
+      />
+
+      {isLoadingAuth && <Spinner />}
+      <form
+        className={s.form}
+        onSubmit={handleSubmit}
+        autoComplete="off">
+        <label
+          htmlFor="email"
+          className={s.formLabel}>
           Email
-          <input
-            type="email"
-            name="email"
-            onChange={handleChangeEmail}
-            value={email}
-            className={s.formInput}
-          />
-        </label>
-        <label className={s.formLabel}>
+          </label>
+        <input
+          className={s.formInput}
+          type="email"
+          name="email"
+          value={email}
+          onChange={handleChange}
+        />
+        <label
+          htmlFor="password"
+          className={s.formLabel}>
           Password
-          <input
-            type="password"
-            name="password"
-            onChange={handleChangePassword}
-            value={password}
-            className={s.formInput}
-          />
-        </label>
-        <button type="submit" className={s.formButton}>
-          Enter
+          </label>
+        <input
+          className={s.formInput}
+          type="password"
+          name="password"
+          value={password}
+          onChange={handleChange}
+        />
+        <button
+          className={s.formButton}
+          type="submit">
+          go!
         </button>
       </form>
     </div>
   );
 }
+
+LoginPage.propTypes = {
+  error: PropTypes.string,
+  isLoadingAuth: PropTypes.bool,
+};

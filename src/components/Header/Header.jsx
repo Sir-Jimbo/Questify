@@ -11,7 +11,7 @@ import s from './Header.module.css';
 export default function Header() {
 
    const dispatch = useDispatch();
-   const name = useSelector(authSelectors.getUsername);
+   const email = useSelector(authSelectors.getUsername);
 
    const onLogOut = useCallback(() => {
       dispatch(authOperations.logOut());

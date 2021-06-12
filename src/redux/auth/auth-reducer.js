@@ -3,7 +3,6 @@ import { createReducer } from '@reduxjs/toolkit';
 import authActions from './auth-actions';
 
 const initialUserState = {
-    name: null,
     email: null
 };
 
@@ -33,7 +32,7 @@ const error = createReducer(null, {
 
 const isAuthenticated = createReducer(false, {
     [authActions.registerSuccess]: () => true,
-    [authActions.loginSuccess]:() => true,
+    [authActions.loginSuccess]: () => true,
     [authActions.getCurrentUserSuccess]: () => true,
     [authActions.registerError]: () => false,
     [authActions.loginError]: () => false,

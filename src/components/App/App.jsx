@@ -41,7 +41,7 @@ export default function App() {
             component={LoginPage} />
           <PrivateRoute
             path="/dashboard"
-            //redirectTo="/login"
+            redirectTo="/login"
             component={DashboardPage}
           />
         </Switch>
