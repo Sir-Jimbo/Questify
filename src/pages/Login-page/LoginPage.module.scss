@@ -1,0 +1,77 @@
+.container {
+  background-image: url("../../images/img/landing\ -\ mobile.jpg");
+  background-color: #cccccc; /* Used if the image is unavailable */
+  height: 648px; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+  font-family: inherit;
+  margin: 0 auto;
+  padding: 20px;
+  width: 320px;
+
+  @media screen and (min-resolution: 2dppx) {
+    .container {
+      background-image: url("../../images/img/landing\ -\ mobile@2.jpg");
+    }
+  }
+  @media screen and (min-resolution: 3dppx) {
+    .container {
+      background-image: url("../../images/img/landing\ -\ mobile@3.jpg");
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    background-image: url("../../images/img/landing\ -\ tablettablet.jpg");
+    height: 1024px; 
+    min-width: 768px;
+
+    @media screen and (min-resolution: 2dppx) {
+      .container {
+        background-image: url("../../images/img/landing\ -\ tablettablet@2.jpg");
+      }
+    }
+    @media screen and (min-resolution: 3dppx) {
+      .container {
+        background-image: url("../../images/img/landing\ -\ tablettablet@3.jpg");
+      }
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    background-image: url("../../images/img/landinglanding.jpg");
+    height: 850px; 
+    min-width: 1280px;
+
+    @media screen and (min-resolution: 2dppx) {
+      .container {
+        background-image: url("../../images/img/landinglanding@2.jpg");
+      }
+    }
+    @media screen and (min-resolution: 3dppx) {
+      .container {
+        background-image: url("../../images/img/landinglanding@3.jpg");
+      }
+    }
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+.formLabel {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+}
+.formInput {
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.formButton {
+  font-family: "New Tegomin", serif;
+  font-weight: 700;
+  padding: 10px;
+}
