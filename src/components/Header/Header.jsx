@@ -11,7 +11,7 @@ import s from './Header.module.css';
 export default function Header() {
 
    const dispatch = useDispatch();
-   const email = useSelector(authSelectors.getUsername);
+   const name = useSelector(authSelectors.getUsername);
 
    const onLogOut = useCallback(() => {
       dispatch(authOperations.logOut());
@@ -20,7 +20,7 @@ export default function Header() {
    return (
       <header className={s.container}>
          <Logo />
-         <Login />
+         <Login name={name} />
          <Logout onClick={onLogOut} />
       </header>
    )

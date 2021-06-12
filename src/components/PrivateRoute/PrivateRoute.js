@@ -5,7 +5,7 @@ import authSelectors from '../../redux/auth/auth-selectors';
 
 /**
  * - Если маршрут приватный и пользователь залогинен, рендерит компонент
- * - В противном случае рендерит Redirect на /login
+ * - В противном случае рендерит Redirect на /
  */
 export default function PrivateRoute({
   redirectTo,

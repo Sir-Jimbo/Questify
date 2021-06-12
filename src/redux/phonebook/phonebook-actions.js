@@ -2,19 +2,19 @@
 import { createAction } from '@reduxjs/toolkit';
 
 
-export const fetchContactRequest = createAction('contacts/fetchContactRequest');
-export const fetchContactSuccess = createAction('contacts/fetchContactSuccess');
-export const fetchContactError = createAction('contacts/fetchContactError');
+export const fetchCardsRequest = createAction('cards/fetchCardsRequest');
+export const fetchCardsSuccess = createAction('cards/fetchCardsSuccess');
+export const fetchCardsError = createAction('cards/fetchCardsError');
 
-export const addContactRequest = createAction('contacts/addContactRequest');
-export const addContactSuccess = createAction('contacts/addContactSuccess');
-export const addContactError = createAction('contacts/addContactError');
+export const addCardRequest = createAction('cards/addCardRequest');
+export const addCardSuccess = createAction('cards/addCardSuccess');
+export const addCardError = createAction('cards/addCardError');
 
-export const deleteContactRequest = createAction('contacts/deleteContactRequest');
-export const deleteContactSuccess = createAction('contacts/deleteContactSuccess');
-export const deleteContactError = createAction('contacts/deleteContactError');
+export const deleteContactRequest = createAction('cards/deleteContactRequest');
+export const deleteContactSuccess = createAction('cards/deleteContactSuccess');
+export const deleteContactError = createAction('cards/deleteContactError');
 
 
-export const changeFilter = createAction('contacts/changeFilter');
+export const changeFilter = createAction('cards/changeFilter');
 
-export const clearError = createAction('contacts/clearError');
+export const clearError = createAction('cards/clearError');

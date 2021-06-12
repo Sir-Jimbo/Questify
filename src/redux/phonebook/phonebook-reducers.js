@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
 import {
-   fetchContactRequest,
-   fetchContactSuccess,
-   fetchContactError,
-   addContactRequest,
-   addContactSuccess,
-   addContactError,
+   fetchCardsRequest,
+   fetchCardsSuccess,
+   fetchCardsError,
+   addCardRequest,
+   addCardSuccess,
+   addCardError,
    deleteContactRequest,
    deleteContactSuccess,
    deleteContactError,
@@ -15,26 +15,26 @@ import {
 } from './phonebook-actions';
 
 const initialState = {
-   contacts: [],
+   cards: [],
    filter: '',
    loading: false,
    error: null,
 };
 
-const contacts = createReducer(initialState.contacts, {
-   [fetchContactSuccess]: (_, { payload }) => payload,
-   [addContactSuccess]: (state, { payload }) => [...state, payload],
+const cards = createReducer(initialState.cards, {
+   [fetchCardsSuccess]: (_, { payload }) => payload,
+   [addCardSuccess]: (state, { payload }) => [...state, payload],
    [deleteContactSuccess]: (state, { payload }) =>
       state.filter(({ id }) => id !== payload),
 });
 
 const loading = createReducer(initialState.loading, {
-   [fetchContactRequest]: () => true,
-   [fetchContactSuccess]: () => false,
-   [fetchContactError]: () => false,
-   [addContactRequest]: () => true,
-   [addContactSuccess]: () => false,
-   [addContactError]: () => false,
+   [fetchCardsRequest]: () => true,
+   [fetchCardsSuccess]: () => false,
+   [fetchCardsError]: () => false,
+   [addCardRequest]: () => true,
+   [addCardSuccess]: () => false,
+   [addCardError]: () => false,
    [deleteContactRequest]: () => true,
    [deleteContactSuccess]: () => false,
    [deleteContactError]: () => false,
@@ -47,14 +47,14 @@ const filter = createReducer(initialState.filter, {
 const setError = (_, { payload }) => payload;
 
 const error = createReducer(initialState.error, {
-   [fetchContactError]: setError,
-   [addContactError]: setError,
+   [fetchCardsError]: setError,
+   [addCardError]: setError,
    [deleteContactError]: setError,
    [clearError]: () => null,
 });
 
 export default combineReducers({
-   contacts,
+   cards,
    filter,
    loading,
    error

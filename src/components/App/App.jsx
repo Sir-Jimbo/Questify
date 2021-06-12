@@ -34,14 +34,9 @@ export default function App() {
             restricted
             redirectTo="/dashboard"
             component={RegisterPage} />
-          <PublicRoute
-            path="/login"
-            restricted
-            redirectTo="/dashboard"
-            component={LoginPage} />
           <PrivateRoute
             path="/dashboard"
-            redirectTo="/login"
+            redirectTo="/"
             component={DashboardPage}
           />
         </Switch>

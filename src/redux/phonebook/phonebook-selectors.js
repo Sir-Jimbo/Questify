@@ -22,10 +22,10 @@ const getError = state => state.phonebook.error;
 //С мемоизацией
 const getVisibleContacts = createSelector(
     [getAllContacts, getFilter],
-    (contacts, filter) => {
+    (cards, filter) => {
         const normalizedFilter = filter.toLowerCase();
 
-        return contacts.filter(({ name }) =>
+        return cards.filter(({ name }) =>
             name.toLowerCase().includes(normalizedFilter),
         );
     },

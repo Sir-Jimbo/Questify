@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import authSelectors from '../../redux/auth/auth-selectors';
 
 /**
- * - Если маршрут ограниченный, и пользователь залогинен, рендерит редирект на /contacts
+ * - Если маршрут ограниченный, и пользователь залогинен, рендерит редирект на /dashboard
  * - В противном случае рендерит компонент
  */
 export default function PublicRoute({

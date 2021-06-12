@@ -53,18 +53,18 @@ const logOut = () => async dispatch => {
 };
 
 const getCurrentUser = () => async (dispatch, getState) => {
-  const { auth: { token: persistedToken }, } = getState();
+  const { auth: { token: refreshToken }, } = getState();
 
-  if (!persistedToken) {
+  if (!refreshToken) {
     return;
   }
 
-  token.set(persistedToken);
+  token.set(refreshToken);
 
   dispatch(authActions.getCurrentUserRequest());
 
   try {
-    const response = await axios.get('/auth/refresh');
+    const response = await axios.post('/auth/refresh');
 
     dispatch(authActions.getCurrentUserSuccess(response.data));
   } catch (error) {

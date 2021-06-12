@@ -1,24 +1,24 @@
 import axios from 'axios';
 import {
-    fetchContactRequest,
-    fetchContactSuccess,
-    fetchContactError,
-    addContactRequest,
-    addContactSuccess,
-    addContactError,
+    fetchCardsRequest,
+    fetchCardsSuccess,
+    fetchCardsError,
+    addCardRequest,
+    addCardSuccess,
+    addCardError,
     deleteContactRequest,
     deleteContactSuccess,
     deleteContactError
 } from './phonebook-actions';
 
 
-const fetchContacts = () => dispatch => {
-    dispatch(fetchContactRequest());
+const fetchCards = () => dispatch => {
+    dispatch(fetchCardsRequest());
 
     axios
-        .get('/contacts')
-        .then(({ data }) => dispatch(fetchContactSuccess(data)))
-        .catch(error => dispatch(fetchContactError(error)));
+        .get('/card')
+        .then(({ data }) => dispatch(fetchCardsSuccess(data)))
+        .catch(error => dispatch(fetchCardsError(error)));
 };
 
 // Option with async/await, try/catch
@@ -35,18 +35,18 @@ const fetchContacts = () => dispatch => {
 //     }
 // }
 
-const addContact = (name, number) => dispatch => {
-    const contact = {
+const addCard = (name, number) => dispatch => {
+    const card = {
         name,
         number,
     };
 
-    dispatch(addContactRequest());
+    dispatch(addCardRequest());
 
     axios
-        .post('/contacts', contact)
-        .then(({ data }) => dispatch(addContactSuccess(data)))
-        .catch(error => dispatch(addContactError(error.message)));
+        .post('/card', card)
+        .then(({ data }) => dispatch(addCardSuccess(data)))
+        .catch(error => dispatch(addCardError(error.message)));
 };
 
 const deleteContact = (contactId) => dispatch => {
@@ -59,8 +59,8 @@ const deleteContact = (contactId) => dispatch => {
 };
 
 const operations = {
-    fetchContacts,
-    addContact,
+    fetchCards,
+    addCard,
     deleteContact
 };
 
