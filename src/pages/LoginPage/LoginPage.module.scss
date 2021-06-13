@@ -23,7 +23,7 @@
 
   @media screen and (min-width: 768px) {
     background-image: url("../../images/img/landing\ -\ tablettablet.jpg");
-    height: 1024px; 
+    height: 1024px;
     min-width: 768px;
 
     @media screen and (min-resolution: 2dppx) {
@@ -40,7 +40,7 @@
 
   @media screen and (min-width: 1280px) {
     background-image: url("../../images/img/landinglanding.jpg");
-    height: 850px; 
+    height: 850px;
     min-width: 1280px;
 
     @media screen and (min-resolution: 2dppx) {
@@ -56,22 +56,79 @@
   }
 }
 
+.title {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+
+  color: #00d7ff;
+
+  margin-top: 45px;
+  margin-bottom: 60px;
+}
+
+.text {
+  font-style: normal;
+  font-weight: bold ;
+  font-size: 17px;
+  line-height: 29px;
+  letter-spacing: -0.5px;
+
+  color: #15395a;
+
+  margin-bottom: 30px;
+  margin-right: 9px;
+}
+
+.option {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 45px;
+  letter-spacing: 0.02em;
+
+  color: #b9c3c8;
+
+  margin-bottom: 30px;
+}
+
 .form {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 .formLabel {
-  display: flex;
-  flex-direction: column;
-  font-weight: 600;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 18px;
+  letter-spacing: -1px;
+
+  color: #00d7ff;
 }
+
+
 .formInput {
-  padding: 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  border-style: none;
+  border-bottom: 1px solid #00d7ff;
+  margin-bottom: 20px;
+  width: 100%;
+ &::placeholder {
+    color: #00d7ff;
+    font-weight: 500;
+    
+  }
 }
+
 .formButton {
-  font-family: "New Tegomin", serif;
-  font-weight: 700;
-  padding: 10px;
+  
+  width: 52px;
+  height: 52px;
+  color: white;
+  border-radius: 50%;
+  background-color: #ff851c;
+  border-style: unset;
 }
