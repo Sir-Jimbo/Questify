@@ -7,12 +7,12 @@ import {
    addCardRequest,
    addCardSuccess,
    addCardError,
-   deleteContactRequest,
-   deleteContactSuccess,
-   deleteContactError,
+   deleteCardRequest,
+   deleteCardSuccess,
+   deleteCardError,
    changeFilter,
    clearError
-} from './phonebook-actions';
+} from './dashboard-actions';
 
 const initialState = {
    cards: [],
@@ -24,7 +24,7 @@ const initialState = {
 const cards = createReducer(initialState.cards, {
    [fetchCardsSuccess]: (_, { payload }) => payload,
    [addCardSuccess]: (state, { payload }) => [...state, payload],
-   [deleteContactSuccess]: (state, { payload }) =>
+   [deleteCardSuccess]: (state, { payload }) =>
       state.filter(({ id }) => id !== payload),
 });
 
@@ -35,9 +35,9 @@ const loading = createReducer(initialState.loading, {
    [addCardRequest]: () => true,
    [addCardSuccess]: () => false,
    [addCardError]: () => false,
-   [deleteContactRequest]: () => true,
-   [deleteContactSuccess]: () => false,
-   [deleteContactError]: () => false,
+   [deleteCardRequest]: () => true,
+   [deleteCardSuccess]: () => false,
+   [deleteCardError]: () => false,
 });
 
 const filter = createReducer(initialState.filter, {
@@ -49,7 +49,7 @@ const setError = (_, { payload }) => payload;
 const error = createReducer(initialState.error, {
    [fetchCardsError]: setError,
    [addCardError]: setError,
-   [deleteContactError]: setError,
+   [deleteCardError]: setError,
    [clearError]: () => null,
 });
 

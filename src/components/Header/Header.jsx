@@ -12,16 +12,20 @@ export default function Header() {
 
    const dispatch = useDispatch();
    const name = useSelector(authSelectors.getUsername);
+   const isLoggedIn = useSelector(authSelectors.getIsAuthenticated);
 
    const onLogOut = useCallback(() => {
       dispatch(authOperations.logOut());
    }, [dispatch]);
 
    return (
-      <header className={s.container}>
-         <Logo />
-         <Login name={name} />
-         <Logout onClick={onLogOut} />
-      </header>
+      <>
+         <header className={s.container}>
+            <Logo />
+            <Login name={name} />
+            <Logout onClick={onLogOut} />
+         </header>
+
+      </>
    )
 }

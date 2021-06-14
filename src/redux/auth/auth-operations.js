@@ -40,26 +40,27 @@ const logIn = credential => async dispatch => {
 
 const logOut = () => async dispatch => {
   dispatch(authActions.logoutRequest());
-
+  console.log(dispatch);
   try {
-    await axios.post('/auth/logout');
-
+    //await axios.post('/auth/logout');
 
     token.unset();
     dispatch(authActions.logoutSuccess());
+
   } catch (error) {
     dispatch(authActions.logoutError(error.message));
+    console.log(error);
   }
 };
 
 const getCurrentUser = () => async (dispatch, getState) => {
-  const { auth: { token: refreshToken }, } = getState();
+  const { auth: { token: persistedToken }, } = getState();
 
-  if (!refreshToken) {
+  if (!persistedToken) {
     return;
   }
 
-  token.set(refreshToken);
+  token.set(persistedToken);
 
   dispatch(authActions.getCurrentUserRequest());
 

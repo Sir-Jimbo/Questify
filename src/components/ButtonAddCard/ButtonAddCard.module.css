@@ -1,0 +1,17 @@
+.button {
+   position: fixed;
+   bottom: 30px;
+   right: 15px;
+
+   width: 52px;
+   height: 52px;
+   padding: 18px;
+
+   font-size: 18px;
+
+   border: none;
+   border-radius: 50%;
+
+   color: #fff;
+   background: #ff851c;
+}

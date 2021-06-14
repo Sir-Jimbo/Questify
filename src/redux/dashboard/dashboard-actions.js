@@ -10,9 +10,9 @@ export const addCardRequest = createAction('cards/addCardRequest');
 export const addCardSuccess = createAction('cards/addCardSuccess');
 export const addCardError = createAction('cards/addCardError');
 
-export const deleteContactRequest = createAction('cards/deleteContactRequest');
-export const deleteContactSuccess = createAction('cards/deleteContactSuccess');
-export const deleteContactError = createAction('cards/deleteContactError');
+export const deleteCardRequest = createAction('cards/deleteContactRequest');
+export const deleteCardSuccess = createAction('cards/deleteContactSuccess');
+export const deleteCardError = createAction('cards/deleteContactError');
 
 
 export const changeFilter = createAction('cards/changeFilter');

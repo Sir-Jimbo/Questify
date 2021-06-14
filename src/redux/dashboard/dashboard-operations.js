@@ -6,10 +6,10 @@ import {
     addCardRequest,
     addCardSuccess,
     addCardError,
-    deleteContactRequest,
-    deleteContactSuccess,
-    deleteContactError
-} from './phonebook-actions';
+    deleteCardRequest,
+    deleteCardSuccess,
+    deleteCardError
+} from './dashboard-actions';
 
 
 const fetchCards = () => dispatch => {
@@ -49,19 +49,19 @@ const addCard = (name, number) => dispatch => {
         .catch(error => dispatch(addCardError(error.message)));
 };
 
-const deleteContact = (contactId) => dispatch => {
-    dispatch(deleteContactRequest());
+const deleteCard = (cardId) => dispatch => {
+    dispatch(deleteCardRequest());
 
     axios
-        .delete(`/contacts/${contactId}`)
-        .then(() => dispatch(deleteContactSuccess(contactId)))
-        .catch(error => dispatch(deleteContactError(error.message)));
+        .delete(`/card/${cardId}`)
+        .then(() => dispatch(deleteCardSuccess(cardId)))
+        .catch(error => dispatch(deleteCardError(error.message)));
 };
 
 const operations = {
     fetchCards,
     addCard,
-    deleteContact
+    deleteCard
 };
 
 export default operations;

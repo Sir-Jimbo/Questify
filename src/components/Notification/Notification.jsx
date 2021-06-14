@@ -1,7 +1,7 @@
 import React, { useEffect, useCallback } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import * as phonebookActions from '../../redux/phonebook/phonebook-actions';
-import selectors from '../../redux/phonebook/phonebook-selectors';
+import * as dashboardActions from '../../redux/dashboard/dashboard-actions';
+import selectors from '../../redux/dashboard/dasboard-selectors';
 import authSelectors from '../../redux/auth/auth-selectors';
 import authActions from '../../redux/auth/auth-actions';
 import { useSelector, useDispatch } from 'react-redux';
@@ -11,7 +11,7 @@ export default function Notification({ message }) {
    const dispatch = useDispatch();
    const errorPb = useSelector(selectors.getError);
    const errorAuth = useSelector(authSelectors.getError);
-   const clearErrorPb = useCallback(() => dispatch(phonebookActions.clearError()), [dispatch]);
+   const clearErrorPb = useCallback(() => dispatch(dashboardActions.clearError()), [dispatch]);
    const clearErrorAuth = useCallback(() => dispatch(authActions.clearError()), [dispatch]);
 
 

@@ -1,12 +1,12 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-const getLoading = state => state.phonebook.loading;
+const getLoading = state => state.dashboard.loading;
 
-const getFilter = state => state.phonebook.filter;
+const getFilter = state => state.dashboard.filter;
 
-const getAllContacts = state => state.phonebook.contacts;
+const getAllCards = state => state.dashboard.cards;
 
-const getError = state => state.phonebook.error;
+const getError = state => state.dashboard.error;
 
 //Без мемоизации
 // const getVisibleContacts = state => {
@@ -20,8 +20,8 @@ const getError = state => state.phonebook.error;
 // };
 
 //С мемоизацией
-const getVisibleContacts = createSelector(
-    [getAllContacts, getFilter],
+const getVisibleCards = createSelector(
+    [getAllCards, getFilter],
     (cards, filter) => {
         const normalizedFilter = filter.toLowerCase();
 
@@ -34,8 +34,8 @@ const getVisibleContacts = createSelector(
 const selectors = {
     getLoading,
     getFilter,
-    getVisibleContacts,
-    getAllContacts,
+    getVisibleCards,
+    getAllCards,
     getError
 };
 
