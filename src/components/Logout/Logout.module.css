@@ -1,5 +1,10 @@
+.icon {
+   width: 22px;
+   height: 16px;
+}
+
 .icon:hover,
-.icon:hover {
+.icon:focus {
    cursor: pointer;
    color: #7b8aa4;
 }

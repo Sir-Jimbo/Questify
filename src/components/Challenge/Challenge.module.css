@@ -4,3 +4,12 @@
    border-radius: 10px;
    padding: 18px 21px;
 }
+.level {
+   display: flex;
+   align-items: baseline;
+   justify-content: space-between;
+}
+.bottom {
+   display: flex;
+   justify-content: space-between;
+}

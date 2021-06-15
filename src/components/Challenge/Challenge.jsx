@@ -19,6 +19,15 @@ export default function Challenge({ handleClickCreate }) {
             </ul>
             <img src="" alt="star" />
          </div>
+         <div className={s.task}>
+            <p>Create New Quest</p>
+            <p>Today</p>
+         </div>
+         <div className={s.bottom}>
+            <div className={s.group}>group</div>
+            <div className={s.clear}>x</div>
+            <div className={s.start}>START</div>
+         </div>
       </div>
    )
 }
