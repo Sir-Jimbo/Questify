@@ -5,7 +5,7 @@ import authOperations from '../../redux/auth/auth-operations';
 import Logo from '../Logo/Logo';
 import Login from '../Login/Login';
 import Logout from '../Logout/Logout'
-import s from './Header.module.css';
+import s from './Header.module.scss';
 
 
 export default function Header() {
