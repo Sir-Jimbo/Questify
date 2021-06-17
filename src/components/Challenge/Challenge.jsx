@@ -1,6 +1,7 @@
 import React from 'react';
 import TaskEditor from '../TaskEditor/TaskEditor';
 import s from './Challenge.module.css';
+import s from './Challenge.module.scss';
 
 export default function Challenge({ handleClickCreate }) {
 

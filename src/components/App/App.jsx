@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 
 import Layout from '../Layout/Layout';
 import Spinner from '../Spinner/Spinner';
-import s from './App.module.css';
+// import s from './App.module.css';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import PublicRoute from '../PublicRoute/PublicRoute';
 import authOperations from '../../redux/auth/auth-operations';
