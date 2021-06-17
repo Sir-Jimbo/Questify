@@ -23,7 +23,8 @@ export default function Header() {
          <header className={s.container}>
             <Logo />
             <Login name={name} />
-            <Logout onClick={onLogOut} />
+            <Logout
+               onClick={onLogOut} />
          </header>
 
       </>

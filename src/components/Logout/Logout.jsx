@@ -1,5 +1,5 @@
 import React from 'react';
-import s from './Logout.module.css';
+import s from './Logout.module.scss';
 import sprite from '../../images/sprite.svg';
 
 

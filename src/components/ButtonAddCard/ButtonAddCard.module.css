@@ -15,3 +15,14 @@
    color: #fff;
    background: #ff851c;
 }
+
+.button:hover,
+.button:focus {
+   cursor: pointer;
+   background-color: #00d7ff;
+}
+
+.button:active,
+.button:visited {
+   background: #47aad5;
+}

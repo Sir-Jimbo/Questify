@@ -35,10 +35,21 @@ const fetchCards = () => dispatch => {
 //     }
 // }
 
-const addCard = (name, number) => dispatch => {
+const addCard = (
+    title,
+    difficulty,
+    category,
+    date,
+    time,
+    type
+) => dispatch => {
     const card = {
-        name,
-        number,
+        title,
+        difficulty,
+        category,
+        date,
+        time,
+        type
     };
 
     dispatch(addCardRequest());

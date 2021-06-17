@@ -1,4 +1,5 @@
 import React from 'react';
+import TaskEditor from '../TaskEditor/TaskEditor';
 import s from './Challenge.module.css';
 
 export default function Challenge({ handleClickCreate }) {
@@ -21,6 +22,7 @@ export default function Challenge({ handleClickCreate }) {
          </div>
          <div className={s.task}>
             <p>Create New Quest</p>
+            <TaskEditor />
             <p>Today</p>
          </div>
          <div className={s.bottom}>

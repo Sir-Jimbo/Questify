@@ -14,35 +14,37 @@ import ButtonAddCard from "../../components/ButtonAddCard/ButtonAddCard";
 import CardsList from "../../components/CardsList/CardList";
 
 export default function DashboardPage() {
-  //const cards = useSelector(selectors.getAllCards);
-  //const isLoadingCards = useSelector(selectors.getLoading);
-  const error = useSelector(selectors.getError);
-  //const dispatch = useDispatch();
+   //const cards = useSelector(selectors.getAllCards);
+   //const isLoadingCards = useSelector(selectors.getLoading);
+   const error = useSelector(selectors.getError);
+   //const dispatch = useDispatch();
 
-  //useEffect(() => {
-  //   dispatch(operations.fetchCards());
-  //}, [dispatch]);
+   //useEffect(() => {
+   //   dispatch(operations.fetchCards());
+   //}, [dispatch]);
 
-  const [editFormShow, setEditFormShow] = useState(false);
+   const [isModalOpen, setIsModalOpen] = useState(false);
+   const toggleModal = () => setIsModalOpen(state => !state);
 
-  return (
-    <>
-      <Header />
-      <Section>
-        {editFormShow ? (
-          <Challenge handleHideCard={() => setEditFormShow(false)} />
-        ) : (
-          <ButtonAddCard onClick={() => setEditFormShow(true)} />
-        )}
-      </Section>
-      <Notification message={error} />
-    </>
-  );
+   return (
+      <>
+         <Header />
+         <Section>
+            <ButtonAddCard
+               onClick={toggleModal}
+               aria-label="Create"
+            />
+
+            {isModalOpen && (<Challenge onClose={toggleModal} />)}
+         </Section>
+         <Notification message={error} />
+      </>
+   );
 }
 
 DashboardPage.propTypes = {
-  cards: PropTypes.arrayOf(PropTypes.object),
-  fetchCards: PropTypes.func,
-  isLoadingCards: PropTypes.bool,
-  error: PropTypes.string,
+   cards: PropTypes.arrayOf(PropTypes.object),
+   fetchCards: PropTypes.func,
+   isLoadingCards: PropTypes.bool,
+   error: PropTypes.string,
 };
