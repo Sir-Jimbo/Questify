@@ -11,7 +11,9 @@ import {
    deleteCardSuccess,
    deleteCardError,
    changeFilter,
-   clearError
+   clearError,
+   onClickBtnCreate,
+   editCard
 } from './dashboard-actions';
 
 const initialState = {
@@ -25,7 +27,7 @@ const cards = createReducer(initialState.cards, {
    [fetchCardsSuccess]: (_, { payload }) => payload,
    [addCardSuccess]: (state, { payload }) => [...state, payload],
    [deleteCardSuccess]: (state, { payload }) =>
-      state.filter(({ id }) => id !== payload),
+      state.filter(({ _id }) => _id !== payload),
 });
 
 const loading = createReducer(initialState.loading, {
@@ -53,9 +55,19 @@ const error = createReducer(initialState.error, {
    [clearError]: () => null,
 });
 
+const isVisibleTemplate = createReducer(false, {
+   [onClickBtnCreate]: (_, { payload }) => payload,
+});
+
+const isEdit = createReducer(false, {
+   [editCard]: (_, { payload }) => payload,
+});
+
 export default combineReducers({
    cards,
    filter,
    loading,
-   error
+   error,
+   isVisibleTemplate,
+   isEdit
 });

@@ -20,13 +20,12 @@ const middleware = [
          ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
    }),
-   //logger
 ];
 
 const authPersistConfig = {
-   key: 'auth',
+   key: 'token',
    storage,
-   whitelist: ['token']
+   whitelist: ['token', 'refreshToken']
 };
 
 const store = configureStore({

@@ -1,0 +1,29 @@
+.listItem-appear {
+  transform: translateY(-100%);
+  opacity: 0.1;
+}
+.listItem-appearActive {
+  transform: translateY(0);
+  opacity: 1;
+  transition: all 300ms ease-in;
+}
+
+.listItem-enter {
+  transform: translateY(-100%);
+  opacity: 0.1;
+}
+.listItem-enterActive {
+  transform: translateY(0);
+  opacity: 1;
+  transition: all 300ms ease-in;
+}
+
+.listItem-exit {
+  transform: translateY(0);
+  opacity: 1;
+}
+.listItem-exitActive {
+  transform: translateY(-100%);
+  opacity: 0.1;
+  transition: all 300ms ease-in;
+}

@@ -54,7 +54,9 @@ const logOut = () => async dispatch => {
 };
 
 const getCurrentUser = () => async (dispatch, getState) => {
-  const { auth: { token: persistedToken }, } = getState();
+  const {
+    auth: { token: persistedToken },
+  } = getState();
 
   if (!persistedToken) {
     return;
@@ -65,9 +67,9 @@ const getCurrentUser = () => async (dispatch, getState) => {
   dispatch(authActions.getCurrentUserRequest());
 
   try {
-    const response = await axios.post('/auth/refresh');
+    //const response = await axios.post('/auth/refresh');
 
-    dispatch(authActions.getCurrentUserSuccess(response.data));
+    dispatch(authActions.getCurrentUserSuccess());
   } catch (error) {
     dispatch(authActions.getCurrentUserError(error.message));
     //На случай если в локал сторедж остался какой-то токен чтобы его почистить

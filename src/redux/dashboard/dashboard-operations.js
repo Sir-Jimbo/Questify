@@ -6,19 +6,28 @@ import {
     addCardRequest,
     addCardSuccess,
     addCardError,
+    updateCardRequest,
+    updateCardSuccess,
+    updateCardError,
+    updateCardStatusDoneRequest,
+    updateCardStatusDoneSuccess,
+    updateCardStatusDoneError,
     deleteCardRequest,
     deleteCardSuccess,
     deleteCardError
 } from './dashboard-actions';
 
 
-const fetchCards = () => dispatch => {
+const fetchCards = () => async dispatch => {
     dispatch(fetchCardsRequest());
-
-    axios
-        .get('/card')
-        .then(({ data }) => dispatch(fetchCardsSuccess(data)))
-        .catch(error => dispatch(fetchCardsError(error)));
+    try {
+        const { data } = await axios
+            .get('/card')
+        dispatch(fetchCardsSuccess(data.cards));
+    }
+    catch (error) {
+        dispatch(fetchCardsError(error));
+    }
 };
 
 // Option with async/await, try/catch
@@ -35,30 +44,57 @@ const fetchCards = () => dispatch => {
 //     }
 // }
 
-const addCard = (
-    title,
-    difficulty,
-    category,
-    date,
-    time,
-    type
-) => dispatch => {
-    const card = {
-        title,
-        difficulty,
-        category,
-        date,
-        time,
-        type
+const addCard = ({
+    category, difficulty, title, time, challenge
+}) =>
+    async dispatch => {
+
+        dispatch(addCardRequest());
+        try {
+            const card = {
+                category, difficulty, title, time, challenge
+            };
+            await axios
+                .post('/card', card)
+                .then(({ data }) => dispatch(addCardSuccess(data)))
+        }
+        catch (error) {
+            dispatch(addCardError(error));
+        }
     };
 
-    dispatch(addCardRequest());
+const updateСard =
+    ({ id, category, difficulty, title, time, challenge }) =>
+        async dispatch => {
+            dispatch(updateCardRequest());
 
-    axios
-        .post('/card', card)
-        .then(({ data }) => dispatch(addCardSuccess(data)))
-        .catch(error => dispatch(addCardError(error.message)));
-};
+            try {
+                const card = { category, difficulty, title, time, challenge };
+
+                dispatch(
+                    updateCardSuccess(
+                        await axios.patch(`/card/${id}`, card).then(res => res.data),
+                    ),
+                );
+
+            } catch (error) {
+                dispatch(updateCardError(error));
+            }
+        };
+
+const updateCardStatusDone =
+    ({ id, done }) =>
+        async dispatch => {
+            dispatch(updateCardStatusDoneRequest());
+            try {
+                const newQuest = await axios
+                    .patch(`/card/${id}/done`, { done: true })
+                    .then(res => res.data);
+                dispatch(updateCardStatusDoneSuccess(newQuest));
+            } catch (error) {
+                dispatch(updateCardStatusDoneError(error));
+            }
+        };
 
 const deleteCard = (cardId) => dispatch => {
     dispatch(deleteCardRequest());
@@ -72,6 +108,8 @@ const deleteCard = (cardId) => dispatch => {
 const operations = {
     fetchCards,
     addCard,
+    updateСard,
+    updateCardStatusDone,
     deleteCard
 };
 

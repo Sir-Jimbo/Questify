@@ -1,4 +1,3 @@
-import { createSelector } from '@reduxjs/toolkit';
 
 const getLoading = state => state.dashboard.loading;
 
@@ -7,6 +6,10 @@ const getFilter = state => state.dashboard.filter;
 const getAllCards = state => state.dashboard.cards;
 
 const getError = state => state.dashboard.error;
+
+const isEditCard = state => state.dashboard.isEdit;
+
+const isVisibleCard = state => state.dashboard.isVisibleCard;
 
 //Без мемоизации
 // const getVisibleContacts = state => {
@@ -20,6 +23,7 @@ const getError = state => state.dashboard.error;
 // };
 
 //С мемоизацией
+/*
 const getVisibleCards = createSelector(
     [getAllCards, getFilter],
     (cards, filter) => {
@@ -30,13 +34,14 @@ const getVisibleCards = createSelector(
         );
     },
 );
-
+*/
 const selectors = {
     getLoading,
     getFilter,
-    getVisibleCards,
+    isVisibleCard,
     getAllCards,
-    getError
+    getError,
+    isEditCard
 };
 
 export default selectors;
